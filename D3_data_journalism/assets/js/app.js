@@ -37,3 +37,8 @@ function xScale(censusData, initXAxis) {
     
     return xLinearScale;
 }
+
+function yScale(censusData, initYAxis) {
+    
+}
+
