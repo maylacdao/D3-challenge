@@ -66,3 +66,4 @@ function renderYAxis(newYScale, yAxis) {
 
     return yAxis;
 };
+
