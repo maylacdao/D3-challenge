@@ -67,3 +67,23 @@ function renderYAxis(newYScale, yAxis) {
     return yAxis;
 };
 
+
+function renderCircles(circlesGroup, newXScale, initXAxis, newYScale, initYAxis) {
+
+    circlesGroup.transition()
+                .duration(2000)
+                .attr("cx", data => newXScale(data[initXAxis]))
+                .attr("cy", data => newYScale(data[initYAxis]))
+
+    return circlesGroup;
+};
+
+function renderLabel (textGroup, newXScale, initXAxis, newYScale, initYAxis) {
+
+    textGroup.transition()
+            .duration(2000)
+            .attr("x", d => newXScale(d[initXAxis]))
+            .attr("y", d => newYScale(d[initYAxis]));
+
+    return textGroup;
+};
