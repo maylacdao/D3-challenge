@@ -102,3 +102,43 @@ function styleX(value, initXAxis) {
     }
 };
 
+
+function updateToolTip(initXAxis, initYAxis, circlesGroup) {
+    
+        if (initXAxis === "poverty") {
+            var xLabel = "Poverty";
+        }
+        else if (initXAxis === 'income') {
+            var xLabel = "Median Income:";
+        }
+        else {
+            var xLabel = "Age:";
+        }
+    
+    if (initYAxis === "healthcare") {
+        var yLabel = "No Healthcare:";
+    }
+    else if (initYAxis === "obesity") {
+        var yLabel = "Obesity:";
+    }
+    else {
+        var yLabel = "Smokers:";
+    }
+
+    
+    var toolTip = d3.tip()
+                    .attr('class', 'd3-tip')
+                    .offset([-8, 0])
+                    .html(function(d) {
+                        return (`${d.state}<br />${xLabel} ${styleX(d[initXAxis], initXAxis)}<br />${yLabel} ${d[initYAxis]}% `);
+                    });
+
+    circlesGroup.call(toolTip);
+
+    circlesGroup.on("mouseover", toolTip.show)
+                .on("mouseout", toolTip.hide);
+
+        return circlesGroup;
+};
+
+d3.csv('assets/')
