@@ -29,3 +29,11 @@ var chartGroup = svg.append("g")
 var initXAxis = "poverty";
 var initYAxis = "healthcare";
 
+function xScale(censusData, initXAxis) {
+    var xLinearScale = d3.scaleLinear()
+                            .domain([d3.min(censusData, d => d[initXAxis]) * 0.8,
+                                d3.max(censusData, d => d[initXAxis]) * 1.2])
+                            .range([0, width]);
+    
+    return xLinearScale;
+}
