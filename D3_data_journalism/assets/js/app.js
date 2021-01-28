@@ -56,3 +56,13 @@ function renderXAxis(newXScale, xAxis) {
 
     return xAxis;
 };
+
+function renderYAxis(newYScale, yAxis) {
+    var leftAxis = d3.axisLeft(newYScale);
+
+    yAxis.transition()
+        .duration(2000)
+        .call(leftAxis);
+
+    return yAxis;
+};
