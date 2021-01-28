@@ -36,7 +36,7 @@ function xScale(censusData, initXAxis) {
                             .range([0, width]);
     
     return xLinearScale;
-}
+};
 
 function yScale(censusData, initYAxis) {
     var yLinearScale = d3.scaleLinear()
@@ -45,6 +45,14 @@ function yScale(censusData, initYAxis) {
                             .range([0, width]);
                         
     return yLinearScale;
+};
 
-}
+function renderXAxis(newXScale, xAxis) {
+    var bottomAxis = d3.axisBottom(newXScale);
 
+    xAxis.transition()
+        .duration(2000)
+        .call(bottomAxis);
+
+    return xAxis;
+};
