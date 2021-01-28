@@ -141,4 +141,6 @@ function updateToolTip(initXAxis, initYAxis, circlesGroup) {
         return circlesGroup;
 };
 
-d3.csv('assets/')
+d3.csv('./assets/data/data.csv').then(function(censusData) {
+    console.log(censusData);
+})
