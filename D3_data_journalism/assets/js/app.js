@@ -72,8 +72,8 @@ function renderCircles(circlesGroup, newXScale, initXAxis, newYScale, initYAxis)
 
     circlesGroup.transition()
                 .duration(2000)
-                .attr("cx", data => newXScale(data[initXAxis]))
-                .attr("cy", data => newYScale(data[initYAxis]))
+                .attr("ix", data => newXScale(data[initXAxis]))
+                .attr("iy", data => newYScale(data[initYAxis]))
 
     return circlesGroup;
 };
@@ -159,6 +159,63 @@ d3.csv('./assets/data/data.csv').then(function(censusData) {
 
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
+
+    var xAxis = chartGroup.append('g')
+                    .classed("x-axis", true)
+                    .attr("transform", `translate(0, ${height})`)
+                    .call(bottomAxis);
+
+    var yAxis = chartGroup.append("g")
+                    .classed("y-axis", true)
+                    .call(leftAxis);
+
+    var circlesGroup = chartGroup.selectAll("circle")
+                        .data(censusData)
+                        .enter()                                    .append("circle")
+                        .classed("stateCircle", true)
+                        .attr("ix", d => xLinearScale(d[initXAxis]))
+                        .attr("iy", d => yLinearScale(d[initYAxis]))
+                        .attr("r", 14)
+                        .attr("opacity", '.5');
+
+    var textGroup = chartGroup.selectAll(".stateText")
+                        .data(censusData)
+                        .enter()
+                        .append("text")
+                        .classed("stateText", true)
+                        .attr("x", d => xLinearScale(d[initXAxis]))
+                        .attr("y", d => yLinearScale(d[initYAxis]))
+                        .attr("dy", 3)
+                        .attr("font-size", "10px")
+                        .text(function(d){return d.abbr});
+                  
+                        
+    var xLabelsGroup = chartGroup.append("g")
+      .attr("transform", `translate(${width / 2}, ${height + 10 + margin.top})`);
+
+    var povertyLabel = xLabelsGroup.append("text")
+      .classed("aText", true)
+      .classed("active", true)
+      .attr("x", 0)
+      .attr("y", 20)
+      .attr("value", "poverty")
+      .text("In Poverty (%)");
+      
+    var ageLabel = xLabelsGroup.append("text")
+      .classed("aText", true)
+      .classed("inactive", true)
+      .attr("x", 0)
+      .attr("y", 40)
+      .attr("value", "age")
+      .text("Age (Median)");  
+
+    var incomeLabel = xLabelsGroup.append("text")
+      .classed("aText", true)
+      .classed("inactive", true)
+      .attr("x", 0)
+      .attr("y", 60)
+      .attr("value", "income")
+      .text("Household Income (Median)")    
 
     
 })
