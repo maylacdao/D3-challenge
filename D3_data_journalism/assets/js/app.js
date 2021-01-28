@@ -159,4 +159,6 @@ d3.csv('./assets/data/data.csv').then(function(censusData) {
 
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
+
+    
 })
