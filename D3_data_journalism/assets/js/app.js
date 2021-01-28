@@ -39,6 +39,12 @@ function xScale(censusData, initXAxis) {
 }
 
 function yScale(censusData, initYAxis) {
-    
+    var yLinearScale = d3.scaleLinear()
+                            .domain([d3.min(censusData, d => d[initYAxis]) * 0.8,
+                                d3.max(censusData, d => d[initYAxis]) * 1.2])
+                            .range([0, width]);
+                        
+    return yLinearScale;
+
 }
 
