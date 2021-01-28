@@ -87,3 +87,18 @@ function renderLabel (textGroup, newXScale, initXAxis, newYScale, initYAxis) {
 
     return textGroup;
 };
+
+
+function styleX(value, initXAxis) {
+
+    if (initXAxis === "poverty") {
+        return `${value}%`;
+    }
+    else if (initXAxis === "income") {
+        return `${value}`;
+    }
+    else {
+        return `${value}`;
+    }
+};
+
