@@ -143,4 +143,20 @@ function updateToolTip(initXAxis, initYAxis, circlesGroup) {
 
 d3.csv('./assets/data/data.csv').then(function(censusData) {
     console.log(censusData);
+
+    censusData.forEach(function(data) {
+        data.obesity = +data.obesity;
+        data.income = +data.income;
+        data.smokes = +data.smokes;
+        data.age = +data.age;
+        data.healthcare = +data.healthcare;
+        data.poverty = +data.poverty;
+    });
+
+
+    var xLinearScale = xScale(censusData, initXAxis);
+    var yLinearScale = yScale(censusData, initYAxis);
+
+    var bottomAxis = d3.axisBottom(xLinearScale);
+    var leftAxis = d3.axisLeft(yLinearScale);
 })
