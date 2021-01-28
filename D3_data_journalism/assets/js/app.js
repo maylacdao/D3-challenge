@@ -1,6 +1,6 @@
 //Specify initial svg size
 var svgWidth = 960;
-var svgHeight = 650;
+var svgHeight = 620;
 
 //Set margins
 var margin = {
@@ -189,33 +189,108 @@ d3.csv('./assets/data/data.csv').then(function(censusData) {
                         .attr("font-size", "10px")
                         .text(function(d){return d.abbr});
                   
-                        
+//X
     var xLabelsGroup = chartGroup.append("g")
-      .attr("transform", `translate(${width / 2}, ${height + 10 + margin.top})`);
+        .attr("transform", `translate(${width / 2}, ${height + 10 + margin.top})`);
 
     var povertyLabel = xLabelsGroup.append("text")
-      .classed("aText", true)
-      .classed("active", true)
-      .attr("x", 0)
-      .attr("y", 20)
-      .attr("value", "poverty")
-      .text("In Poverty (%)");
+        .classed("aText", true)
+        .classed("active", true)
+        .attr("x", 0)
+        .attr("y", 20)
+        .attr("value", "poverty")
+        .text("In Poverty (%)");
       
     var ageLabel = xLabelsGroup.append("text")
-      .classed("aText", true)
-      .classed("inactive", true)
-      .attr("x", 0)
-      .attr("y", 40)
-      .attr("value", "age")
-      .text("Age (Median)");  
+        .classed("aText", true)
+        .classed("inactive", true)
+        .attr("x", 0)
+        .attr("y", 40)
+        .attr("value", "age")
+        .text("Age (Median)");  
 
     var incomeLabel = xLabelsGroup.append("text")
-      .classed("aText", true)
-      .classed("inactive", true)
-      .attr("x", 0)
-      .attr("y", 60)
-      .attr("value", "income")
-      .text("Household Income (Median)")    
+        .classed("aText", true)
+        .classed("inactive", true)
+        .attr("x", 0)
+        .attr("y", 60)
+        .attr("value", "income")
+        .text("Household Income (Median)")    
 
+//Y
+    var yLabelsGroup = chartGroup.append('g')
+        .attr('transform', `translate(${0 - margin.left/4}, ${height/2})`);
+
+    var healthcareLabel = yLabelsGroup.append('text')
+        .classed('aText', true)
+        .classed('active', true)
+        .attr('x', 0)
+        .attr('y', 0 - 20)
+        .attr('dy', '1em')
+        .attr('transform', 'rotate(-90)')
+        .attr('value', 'healthcare')
+        .text('Without Healthcare (%)');
     
-})
+    var smokesLabel = yLabelsGroup.append('text')
+        .classed('aText', true)
+        .classed('inactive', true)
+        .attr('x', 0)
+        .attr('y', 0 - 40)
+        .attr('dy', '1em')
+        .attr('transform', 'rotate(-90)')
+        .attr('value', 'smokes')
+        .text('Smoker (%)');
+    
+    var obesityLabel = yLabelsGroup.append('text')
+        .classed('aText', true)
+        .classed('inactive', true)
+        .attr('x', 0)
+        .attr('y', 0 - 60)
+        .attr('dy', '1em')
+        .attr('transform', 'rotate(-90)')
+        .attr('value', 'obesity')
+        .text('Obese (%)');
+
+      
+    //toolTip Update
+    var circlesGroup = updateToolTip(initXAxis, initYAxis, circlesGroup);
+
+
+    //X Event listener
+    xLabelsGroup.selectAll("text")
+        .on("click", function() {
+
+            var value = d3.select(this).attr("value");
+
+            if (value != initXAxis) {
+                
+                initXAxis = value;
+
+                xLinearScale = xScale(censusData, initXAxis);
+
+                xAxis = renderXAxis(xLinearScale, xAxis);
+
+                circlesGroup = renderCircles(circlesGroup, xLinearScale, initXAxis, yLinearScale, initYAxis);
+
+                textGroup = renderText(circlesGroup, xLinearScale, initXAxis, yLinearScale, initYAxis);
+
+                //update toolTip
+                circlesGroup = updateToolTip(initXAxis, initYAxis, circlesGroup);
+
+                if (initXAxis === "poverty") {
+                    povertyLabel.classed("active", true).classed("inactive", false);
+                    ageLabel.classed("active", false).classed("inactive", true);
+                    incomeLabel.classed("active", false).classed("inactive", true);
+                }
+                else if (initXAxis === "age") {
+                    povertyLabel.classed("active", false).classed("inactive", true);
+                    ageLabel.classed("active", true).classed("inactive", false);
+                    incomeLabel.classed("active", false).classed("inactive", true);
+                }
+                else {
+                    povertyLabel.classed("active", false).classed("inactive", true);
+                    ageLabel.classed("active", false).classed("inactive", true);
+                    incomeLabel.classed("active", true).classed("inactive", false);
+                }
+            }
+});
