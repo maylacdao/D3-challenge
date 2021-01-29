@@ -9,7 +9,7 @@
   fill: #000;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .inactive {
@@ -38,8 +38,6 @@
 }
 
 .chart {
-  width: 960;
-  height: 620;
   display: block;
   margin: 0;
 }
