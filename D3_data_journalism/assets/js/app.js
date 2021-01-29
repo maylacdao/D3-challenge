@@ -5,8 +5,8 @@ var svgHeight = 620;
 var margin = {
   top: 20, 
   right: 40, 
-  bottom: 200,
-  left: 100
+  bottom: 150,
+  left: 150
 };
 
 var width = svgWidth - margin.right - margin.left;
@@ -194,8 +194,8 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
       .classed("stateCircle", true)
       .attr("cx", d => xLinearScale(d[initXAxis]))
       .attr("cy", d => yLinearScale(d[initYAxis]))
-      .attr("r", 14)
-      .attr("opacity", ".5");
+      .attr("r", 16)
+      .attr("opacity", ".8");
 
     
     var textGroup = chartGroup.selectAll(".stateText")
