@@ -9,13 +9,15 @@
   fill: #000;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
+  font-size: 20px;
 }
 
 .inactive {
   font-weight: lighter;
-  fill: #c9c9c9;
+  fill: silver;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
+  font-size: 20px;
 }
 
 .inactive:hover {
@@ -36,6 +38,8 @@
 }
 
 .chart {
+  width: 960;
+  height: 620;
   display: block;
   margin: 0;
 }
