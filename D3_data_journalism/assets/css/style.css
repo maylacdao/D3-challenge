@@ -21,6 +21,11 @@ body {
   border-bottom: 1px solid white;
 }
 
+.nav-item {
+  margin: 0 auto;
+  padding: 20% auto;
+}
+
 form {
   margin-left: 60%;
 }
