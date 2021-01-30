@@ -10,33 +10,41 @@ html {
 }
 
 body {
-  /* background-image: url(https://images.pexels.com/photos/4386157/pexels-photo-4386157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
   background-color: black;
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/004/631/original/black_background_flipped.jpg?1612039489);
   /* Padding bottom by footer height */
   padding-bottom: 50px;
 }
 
 .navbar {
+  width: 100%;
   background-color: black;
   border-bottom: 1px solid white;
 }
 
-.nav-item {
-  margin: 0 auto;
-  padding: 20% auto;
+.navbar-brand h1 {
+  font-family: "Fraunces", serif;
+  font-size: 40px;
+  color: white;
 }
 
-form {
-  margin-left: 60%;
+.nav li {
+  font-size: 16px;
+  font-family: "Libre Franklin", sans-serif;
+}
+
+.navigation-pane {
+  padding-left: 10%;
+  justify-content: center;
+}
+
+.search-form {
+  padding-left: 50px;
+  padding-right: 0;
 }
 
 .btn {
   margin-left: 5%;
-}
-
-h1 {
-  font-family: "Fraunces", serif;
-  color: #ffffff;
 }
 
 h2.headline {
