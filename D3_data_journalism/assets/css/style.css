@@ -10,23 +10,40 @@ html {
 }
 
 body {
-  background-image: url(https://images.pexels.com/photos/4386157/pexels-photo-4386157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  /* background-image: url(https://images.pexels.com/photos/4386157/pexels-photo-4386157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
+  background-color: black;
   /* Padding bottom by footer height */
   padding-bottom: 80px;
 }
 
+.navbar {
+  background-color: black;
+  border-bottom: 1px solid white;
+}
+
+form {
+  margin-left: 60%;
+}
+
+.btn {
+  margin-left: 5%;
+}
+
 h1 {
   font-family: "Fraunces", serif;
+  color: #ffffff;
 }
 
 h2 {
+  padding-bottom: 20px;
   text-align: center;
   font-family: "Libre Franklin", sans-serif;
+  color: #ffffff;
 }
 
 svg {
   /* background-image: linear-gradient(to right, #434343 0%, black 100%); */
-  background-color: black;
+  /* background-color: black; */
   border-radius: 3px;
   border: 1px solid white;
 }
@@ -39,9 +56,9 @@ text {
   color: white;
 }
 
-p {
+.article p {
   text-align: center;
-  color: black;
+  color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
