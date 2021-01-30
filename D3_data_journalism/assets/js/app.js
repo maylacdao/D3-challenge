@@ -1,7 +1,8 @@
-
+//Specifiy initial width and height
 var svgWidth = 960;
 var svgHeight = 620;
 
+//Set margins
 var margin = {
   top: 20, 
   right: 40, 
@@ -9,9 +10,11 @@ var margin = {
   left: 150
 };
 
+//Specify final chart area
 var width = svgWidth - margin.right - margin.left;
 var height = svgHeight - margin.top - margin.bottom;
 
+//Create chart
 var chart = d3.select("#scatter")
   .append("div")
   .classed("chart", true);
