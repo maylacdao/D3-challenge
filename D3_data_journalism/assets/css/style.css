@@ -13,7 +13,7 @@ body {
   /* background-image: url(https://images.pexels.com/photos/4386157/pexels-photo-4386157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
   background-color: black;
   /* Padding bottom by footer height */
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .navbar {
@@ -39,7 +39,7 @@ h1 {
   color: #ffffff;
 }
 
-h2 {
+h2.headline {
   padding-bottom: 20px;
   text-align: center;
   font-family: "Libre Franklin", sans-serif;
@@ -78,7 +78,34 @@ text {
   background-color: #f5f5f5;
 }
 
-#footer p {
-  margin: 0;
-  font-size: 16px;
+hr {
+  border: none;
+  border-top: 3px double #fff;
+  color: #fff;
+  overflow: visible;
+  text-align: center;
+  height: 7px;
+}
+
+hr:after {
+  background: #000000;
+  content: "§";
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
+
+#footer {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: left;
+}
+
+h3.logo-brand {
+  margin: 0 auto;
+
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: left;
 }
