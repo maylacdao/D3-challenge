@@ -13,7 +13,7 @@ body {
   /* background-image: url(https://images.pexels.com/photos/4386157/pexels-photo-4386157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
   background-color: black;
   /* Padding bottom by footer height */
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
 
 .navbar {
@@ -103,9 +103,32 @@ hr:after {
 
 h3.logo-brand {
   margin: 0 auto;
-
   font-family: "Fraunces", serif;
-  font-size: 20px;
+  font-size: 30px;
   color: #ffffff;
   text-align: left;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: silver;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: cyan;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
 }
