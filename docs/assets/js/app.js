@@ -19,14 +19,16 @@ var chart = d3.select("#scatter")
   .append("div")
   .classed("chart", true);
 
+//Create svg
 var svg = chart.append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
-  
+
+//Create transitions 
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-
+//Specify initial x & y axes
 var initXAxis = "poverty";
 var initYAxis = "healthcare";
 
