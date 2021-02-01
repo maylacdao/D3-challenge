@@ -14,7 +14,7 @@ var margin = {
 var width = svgWidth - margin.right - margin.left;
 var height = svgHeight - margin.top - margin.bottom;
 
-//Create chart
+//Create chart variable
 var chart = d3.select("#scatter")
   .append("div")
   .classed("chart", true);
