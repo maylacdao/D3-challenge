@@ -10,8 +10,9 @@ html {
 }
 
 body {
-  background-color: black;
-  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/004/631/original/black_background_flipped.jpg?1612039489);
+  /* background-color: black; */
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/004/717/original/black_background_flipped_%284%29.jpg?1612303774);
+  background-size: cover;
   /* Padding bottom by footer height */
   padding-bottom: 50px;
 }
